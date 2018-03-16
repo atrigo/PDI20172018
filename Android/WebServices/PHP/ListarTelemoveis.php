@@ -14,7 +14,7 @@ if ($result1 = $conn->query($sql1)){
     //Para cada linha da base de dados
     while ($row1 = $result1->fetch_array(MYSQLI_ASSOC)){
            $resultArray[] = array("id" => $row1['ID'], "marca" => $row1['Marca'], 'modelo' => $row1['Modelo'], 
-           'preco' => $row1['Preco'], 'descricao' => $row1['Descricao'], 'urlimagem' => $row1['URLIMAGEM']); 
+           'preco' => $row1['Preco'], 'descricao' => $row1['Descricao'], 'urlimagem' => $row1['ImagemURL']); 
     }
 }
 
