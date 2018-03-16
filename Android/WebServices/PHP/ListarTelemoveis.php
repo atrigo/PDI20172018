@@ -19,6 +19,7 @@ if ($result1 = $conn->query($sql1)){
 }
 
 $returnArray = array("status" => 1, "content"=> array("telemoveis"=> $resultArray));
+header("Access-Control-Allow-Origin: *");
 header('Content-type: application/json');
 echo json_encode($returnArray);
 
