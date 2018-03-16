@@ -1,9 +1,9 @@
-- phpMyAdmin SQL Dump
+-- phpMyAdmin SQL Dump
 -- version 4.6.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: fdb17.awardspace.net
--- Generation Time: 14-Mar-2018 às 11:43
+-- Generation Time: 16-Mar-2018 às 09:03
 -- Versão do servidor: 5.7.20-log
 -- PHP Version: 5.5.38
 
@@ -29,6 +29,8 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `Cliente`;
 CREATE TABLE `Cliente` (
   `ID` int(11) NOT NULL,
+  `Username` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Password` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Nome` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `NIF` int(11) NOT NULL,
   `Morada` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
@@ -38,9 +40,9 @@ CREATE TABLE `Cliente` (
 -- Extraindo dados da tabela `Cliente`
 --
 
-INSERT INTO `Cliente` (`ID`, `Nome`, `NIF`, `Morada`) VALUES
-(1, 'Miguel', 1, 'Casa 1'),
-(2, 'Joao', 2, 'Casa 2');
+INSERT INTO `Cliente` (`ID`, `Username`, `Password`, `Nome`, `NIF`, `Morada`) VALUES
+(1, 'miguel', 'miguel', 'Miguel', 1, 'Casa 1'),
+(2, 'joao', 'joao', 'Joao', 2, 'Casa 2');
 
 -- --------------------------------------------------------
 
@@ -78,14 +80,14 @@ CREATE TABLE `Telemovel` (
   `Preco` double NOT NULL,
   `Descricao` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Stock` int(11) NOT NULL,
-  `URLIMAGEM` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
+  `ImagemURL` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Extraindo dados da tabela `Telemovel`
 --
 
-INSERT INTO `Telemovel` (`ID`, `Marca`, `Modelo`, `Preco`, `Descricao`, `Stock`, `URLIMAGEM`) VALUES
+INSERT INTO `Telemovel` (`ID`, `Marca`, `Modelo`, `Preco`, `Descricao`, `Stock`, `ImagemURL`) VALUES
 (1, 'Samsung', 'Galaxy', 600, 'Muito bom!', 10, 'sam1.jpg'),
 (2, 'Samsung', 'Galaxy 2', 500, 'Bom!', 10, 'sam2.jpg');
 
@@ -97,7 +99,8 @@ INSERT INTO `Telemovel` (`ID`, `Marca`, `Modelo`, `Preco`, `Descricao`, `Stock`,
 -- Indexes for table `Cliente`
 --
 ALTER TABLE `Cliente`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `Username` (`Username`);
 
 --
 -- Indexes for table `ClienteTelemovel`
