@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 else {
         $returnArray = array ("status" => "0","content" => "Metodo nao e POST");
 }
-
+header("Access-Control-Allow-Origin: *");
 header('Content-type: application/json');
 echo json_encode($returnArray);
 
