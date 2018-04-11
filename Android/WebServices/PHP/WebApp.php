@@ -32,7 +32,8 @@ session_start();
                                     else {
                                             console.log(result.content);
                                             $.post('/WebAppSetSession.php', { username: result.content });
-                                            //location.reload();
+                                            alert("Login efetuado com sucesso!");
+                                            location.reload();
                                     }
                                 },
                                 error: function(xhr, resp, text) {
